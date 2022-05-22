@@ -14,7 +14,7 @@ namespace IfCommerce.Core.Tests.Domain
             public ConcreteCommand(Guid aggregateId) : base(aggregateId) { }
         }
 
-        public class ConcreteCommandValidator : CommandValidator<ConcreteCommand> 
+        public class ConcreteCommandValidator : CommandValidator<ConcreteCommand>
         {
             public ConcreteCommandValidator()
             {
