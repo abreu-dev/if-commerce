@@ -9,6 +9,7 @@ using IfCommerce.Core.Mediator;
 using IfCommerce.Core.Messaging.Notifications;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace IfCommerce.Catalog.Infra.CrossCutting.IoC
 {
@@ -16,6 +17,8 @@ namespace IfCommerce.Catalog.Infra.CrossCutting.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            if (services == null) throw new ArgumentNullException(nameof(services));
+
             // Application - Services
             services.AddScoped<IHealthService, HealthService>();
             services.AddScoped<IProductService, ProductService>();
@@ -32,7 +35,7 @@ namespace IfCommerce.Catalog.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<DeleteProductCommand, Unit>, ProductCommandHandler>();
 
             // Infra Data - Contexts
-            services.AddScoped<CatalogContext>();
+            services.AddScoped<ICatalogContext, CatalogContext>();
 
             // Infra Data - Repositories
             services.AddScoped<IProductRepository, ProductRepository>();

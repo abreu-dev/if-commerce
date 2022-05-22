@@ -9,11 +9,11 @@ namespace IfCommerce.Catalog.Infra.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly CatalogContext _catalogContext;
+        private readonly ICatalogContext _catalogContext;
 
         public IUnitOfWork UnitOfWork => _catalogContext;
 
-        public ProductRepository(CatalogContext catalogContext)
+        public ProductRepository(ICatalogContext catalogContext)
         {
             _catalogContext = catalogContext;
         }
