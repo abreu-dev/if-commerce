@@ -3,7 +3,7 @@ using IfCommerce.Core.Messaging;
 
 namespace IfCommerce.Core.Domain
 {
-    public abstract class CommandValidator<T> : AbstractValidator<T> where T : Command
+    public abstract class CommandValidator<TCommand> : AbstractValidator<TCommand> where TCommand : Command 
     {
         protected void ValidateId()
         {

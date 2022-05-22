@@ -1,5 +1,4 @@
-﻿using FluentValidation.Results;
-using IfCommerce.Core.Messaging;
+﻿using IfCommerce.Core.Messaging;
 using IfCommerce.Core.Messaging.Notifications;
 using MediatR;
 using System.Threading.Tasks;
@@ -15,7 +14,7 @@ namespace IfCommerce.Core.Mediator
             _mediator = mediator;
         }
 
-        public Task<ValidationResult> SendCommand<T>(T command) where T : Command
+        public Task SendCommand<T>(T command) where T : Command
         {
             return _mediator.Send(command);
         }

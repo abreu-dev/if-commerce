@@ -9,10 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\IfCommerce.Catalog.Infra.CrossCutting.IoC\IfCommerce.Catalog.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
