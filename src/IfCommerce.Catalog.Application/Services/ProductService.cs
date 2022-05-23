@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
 using IfCommerce.Catalog.Application.Contracts.ProductContracts;
-using IfCommerce.Catalog.Application.Helpers;
 using IfCommerce.Catalog.Application.Interfaces;
-using IfCommerce.Catalog.Application.Parameters;
-using IfCommerce.Catalog.Application.Responses;
+using IfCommerce.Catalog.Application.Query.Parameters;
 using IfCommerce.Catalog.Domain.Commands.ProductCommands;
 using IfCommerce.Catalog.Domain.Entities;
 using IfCommerce.Catalog.Domain.Interfaces;
+using IfCommerce.Core.Extensions;
 using IfCommerce.Core.Mediator;
+using IfCommerce.Core.Query;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
@@ -40,14 +39,8 @@ namespace IfCommerce.Catalog.Application.Services
                 source = source.ApplyFilter("Name", parameters.Name);
             }
 
-            var totalItems = source.Count();
-            var totalPages = (int)Math.Ceiling(totalItems / (double)parameters.Size);
-            var items = _mapper.Map<IEnumerable<ProductContract>>(source
-                .Skip(parameters.Page * parameters.Size)
-                .Take(parameters.Size)
-                .ToList());
-
-            return new PagedList<ProductContract>(items, parameters.Page, totalItems, totalPages);
+            var pagedList = PagedList<Product>.ToPagedList(source, parameters.Page, parameters.Size);
+            return _mapper.Map<PagedList<ProductContract>>(pagedList);
         }
 
         public ProductContract GetProductById(Guid id)

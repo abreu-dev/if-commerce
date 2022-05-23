@@ -3,9 +3,9 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Text;
 
-namespace IfCommerce.Catalog.Application.Helpers
+namespace IfCommerce.Core.Extensions
 {
-    public static class LinqFilterBuilder
+    public static class QueryableExtensions
     {
         private static string CHARACTER_CONTAINS = "*";
 

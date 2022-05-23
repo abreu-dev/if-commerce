@@ -1,8 +1,8 @@
 ﻿using IfCommerce.Catalog.Application.Contracts.ProductContracts;
 using IfCommerce.Catalog.Application.Interfaces;
-using IfCommerce.Catalog.Application.Parameters;
-using IfCommerce.Catalog.Application.Responses;
+using IfCommerce.Catalog.Application.Query.Parameters;
 using IfCommerce.Core.Messaging.Notifications;
+using IfCommerce.Core.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
