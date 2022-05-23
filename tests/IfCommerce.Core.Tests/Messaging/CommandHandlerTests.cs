@@ -18,11 +18,6 @@ namespace IfCommerce.Core.Tests.Messaging
         public class ConcreteCommand : Command
         {
             public ConcreteCommand(Guid aggregateId) : base(aggregateId) { }
-
-            public override bool IsValid()
-            {
-                return true;
-            }
         }
 
         private readonly Mock<IMediatorHandler> _mediatorHandler;

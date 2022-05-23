@@ -21,7 +21,6 @@ namespace IfCommerce.Core.Query
         public PagedList(List<T> items, int count, int page, int size)
         {
             Data = items;
-
             CurrentPage = page;
             TotalPages = (int)Math.Ceiling(count / (double)size);
             TotalCount = count;
