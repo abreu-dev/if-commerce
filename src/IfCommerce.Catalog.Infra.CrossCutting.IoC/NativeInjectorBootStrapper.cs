@@ -7,7 +7,7 @@ using IfCommerce.Catalog.Infra.Data.Context;
 using IfCommerce.Catalog.Infra.Data.Repositories;
 using IfCommerce.Core.Mediator;
 using IfCommerce.Core.Messaging.Notifications;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;

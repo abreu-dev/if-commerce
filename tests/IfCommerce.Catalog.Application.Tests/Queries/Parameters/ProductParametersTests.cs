@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using IfCommerce.Catalog.Application.Query.Parameters;
-using IfCommerce.Core.Query;
+using IfCommerce.Catalog.Application.Queries.Parameters;
+using IfCommerce.Core.Queries;
 using System.Collections.Generic;
 using Xunit;
 

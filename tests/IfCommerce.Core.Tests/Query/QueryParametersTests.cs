@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using Xunit;
 
 namespace IfCommerce.Core.Tests.Query

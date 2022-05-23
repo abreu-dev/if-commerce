@@ -2,7 +2,7 @@
 using IfCommerce.Catalog.Application.Interfaces;
 using IfCommerce.Catalog.Application.Queries.Parameters;
 using IfCommerce.Core.Messaging.Notifications;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;

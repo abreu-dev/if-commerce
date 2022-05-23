@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using IfCommerce.Core.Domain;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using System.Collections.Generic;
 using Xunit;
 

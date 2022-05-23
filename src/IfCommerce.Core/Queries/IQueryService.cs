@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace IfCommerce.Core.Query
+namespace IfCommerce.Core.Queries
 {
     public interface IQueryService
     {

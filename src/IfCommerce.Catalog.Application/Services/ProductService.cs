@@ -6,7 +6,7 @@ using IfCommerce.Catalog.Domain.Commands.ProductCommands;
 using IfCommerce.Catalog.Domain.Entities;
 using IfCommerce.Catalog.Domain.Interfaces;
 using IfCommerce.Core.Mediator;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using System;
 using System.Linq;
 using System.Linq.Dynamic.Core;

@@ -2,13 +2,13 @@
 using FluentAssertions;
 using IfCommerce.Catalog.Application.Contracts.ProductContracts;
 using IfCommerce.Catalog.Application.Interfaces;
-using IfCommerce.Catalog.Application.Query.Parameters;
+using IfCommerce.Catalog.Application.Queries.Parameters;
 using IfCommerce.Catalog.Application.Services;
 using IfCommerce.Catalog.Domain.Commands.ProductCommands;
 using IfCommerce.Catalog.Domain.Entities;
 using IfCommerce.Catalog.Domain.Interfaces;
 using IfCommerce.Core.Mediator;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using Moq;
 using System;
 using System.Collections.Generic;

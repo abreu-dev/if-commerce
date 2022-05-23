@@ -1,6 +1,6 @@
 ﻿using IfCommerce.Catalog.Application.Contracts.ProductContracts;
 using IfCommerce.Catalog.Application.Queries.Parameters;
-using IfCommerce.Core.Query;
+using IfCommerce.Core.Queries;
 using System;
 using System.Threading.Tasks;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace IfCommerce.Core.Query
+namespace IfCommerce.Core.Queries
 {
     public class PagedList<T>
     {

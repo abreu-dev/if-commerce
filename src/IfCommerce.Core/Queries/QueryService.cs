@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Text;
 
-namespace IfCommerce.Core.Query
+namespace IfCommerce.Core.Queries
 {
     public class QueryService : IQueryService
     {

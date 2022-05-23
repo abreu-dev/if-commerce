@@ -1,4 +1,4 @@
-﻿namespace IfCommerce.Core.Query
+﻿namespace IfCommerce.Core.Queries
 {
     public abstract class QueryParameters
     {
