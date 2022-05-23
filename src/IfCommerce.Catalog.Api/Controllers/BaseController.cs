@@ -12,6 +12,8 @@ namespace IfCommerce.Catalog.Api.Controllers
     {
         private readonly DomainNotificationHandler _notifications;
 
+        protected BaseController() { }
+
         protected BaseController(INotificationHandler<DomainNotification> notifications)
         {
             _notifications = (DomainNotificationHandler)notifications;

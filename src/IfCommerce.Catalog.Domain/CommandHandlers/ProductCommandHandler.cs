@@ -17,7 +17,8 @@ namespace IfCommerce.Catalog.Domain.CommandHandlers
     {
         private readonly IProductRepository _productRepository;
 
-        public ProductCommandHandler(IProductRepository productRepository, IMediatorHandler mediatorHandler)
+        public ProductCommandHandler(IMediatorHandler mediatorHandler, 
+                                     IProductRepository productRepository)
             : base(mediatorHandler)
         {
             _productRepository = productRepository;
@@ -27,7 +28,7 @@ namespace IfCommerce.Catalog.Domain.CommandHandlers
         {
             if (!request.IsValid())
             {
-                await PublishValidationErrors(request);
+                await _mediatorHandler.PublishValidationErrors(request);
                 return Unit.Value;
             }
 
@@ -48,7 +49,7 @@ namespace IfCommerce.Catalog.Domain.CommandHandlers
         {
             if (!request.IsValid())
             {
-                await PublishValidationErrors(request);
+                await _mediatorHandler.PublishValidationErrors(request);
                 return Unit.Value;
             }
 
@@ -79,7 +80,7 @@ namespace IfCommerce.Catalog.Domain.CommandHandlers
         {
             if (!request.IsValid())
             {
-                await PublishValidationErrors(request);
+                await _mediatorHandler.PublishValidationErrors(request);
                 return Unit.Value;
             }
 

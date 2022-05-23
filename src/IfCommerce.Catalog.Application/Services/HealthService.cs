@@ -1,14 +1,20 @@
 ﻿using IfCommerce.Catalog.Application.Interfaces;
+using IfCommerce.Catalog.Infra.Data.Context;
 
 namespace IfCommerce.Catalog.Application.Services
 {
     public class HealthService : IHealthService
     {
-        public HealthService() { }
+        private readonly ICatalogContext _catalogContext;
+
+        public HealthService(ICatalogContext catalogContext)
+        {
+            _catalogContext = catalogContext;
+        }
 
         public bool IsHealthy()
         {
-            return true;
+            return _catalogContext.IsAvailable();
         }
     }
 }

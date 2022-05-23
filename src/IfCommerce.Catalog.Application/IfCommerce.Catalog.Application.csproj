@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IfCommerce.Catalog.Domain\IfCommerce.Catalog.Domain.csproj" />
+    <ProjectReference Include="..\IfCommerce.Catalog.Infra.Data\IfCommerce.Catalog.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

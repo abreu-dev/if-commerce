@@ -28,5 +28,13 @@ namespace IfCommerce.Core.Mediator
         {
             return _mediator.Publish(notification);
         }
+
+        public async Task PublishValidationErrors(Command command)
+        {
+            foreach (var error in command.ValidationResult.Errors)
+            {
+                await PublishDomainNotification(new DomainNotification(error.ErrorCode, error.CustomState.ToString(), error.ErrorMessage));
+            }
+        }
     }
 }

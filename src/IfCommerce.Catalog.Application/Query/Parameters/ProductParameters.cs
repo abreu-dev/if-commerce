@@ -9,8 +9,8 @@ namespace IfCommerce.Catalog.Application.Query.Parameters
 
         public ProductParameters()
         {
-            Name = new List<string>();
             Order = "Name";
+            Name = new List<string>();
         }
     }
 }

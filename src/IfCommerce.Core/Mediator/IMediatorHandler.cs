@@ -9,5 +9,6 @@ namespace IfCommerce.Core.Mediator
         Task SendCommand<T>(T command) where T : Command;
         Task PublishEvent<T>(T @event) where T : Event;
         Task PublishDomainNotification<T>(T notification) where T : DomainNotification;
+        Task PublishValidationErrors(Command command);
     }
 }
