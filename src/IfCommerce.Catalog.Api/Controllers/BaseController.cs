@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace IfCommerce.Catalog.Api.Controllers
 {
     [ApiController]
-    [Route("catalog/")]
+    [Route("catalog")]
     public abstract class BaseController : ControllerBase
     {
         private readonly DomainNotificationHandler _notifications;
@@ -24,23 +24,20 @@ namespace IfCommerce.Catalog.Api.Controllers
             return StatusCode(StatusCodes.Status503ServiceUnavailable, null);
         }
 
-        protected IActionResult BadRequest(string instance)
-        {
-            var response = new Response(instance);
-
-            _notifications.GetNotifications().ForEach(notification =>
-            {
-                response.Errors.Add(new ResponseError(notification.Type, notification.Message, notification.Detail));
-            });
-
-            return BadRequest(response);
-        }
-
-        protected IActionResult CustomResponse(string instance)
+        protected IActionResult CustomResponse()
         {
             if (_notifications.HasNotifications())
             {
-                return BadRequest(instance);
+                var instance = HttpContext.Request.Path;
+                var traceId = HttpContext.TraceIdentifier;
+                var response = new Response(instance, traceId);
+
+                _notifications.GetNotifications().ForEach(notification =>
+                {
+                    response.Errors.Add(new ResponseError(notification.Type, notification.Message, notification.Detail));
+                });
+
+                return BadRequest(response);
             }
 
             return Ok();

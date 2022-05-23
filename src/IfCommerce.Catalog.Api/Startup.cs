@@ -2,6 +2,7 @@ using IfCommerce.Catalog.Api.Configurations;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,7 +21,10 @@ namespace IfCommerce.Catalog.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // WebAPI Config
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
+            });
 
             // Setting DBContexts
             services.AddDatabaseConfiguration();

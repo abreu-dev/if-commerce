@@ -21,42 +21,37 @@ namespace IfCommerce.Catalog.Api.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
-        [Route("products:paginated")]
+        [HttpGet("[controller]:paginated")]
         public PagedList<ProductContract> GetPagedProducts([FromQuery] ProductParameters parameters)
         {
             return _productService.GetPagedProducts(parameters);
         }
 
-        [HttpGet]
-        [Route("products/{id:guid}")]
+        [HttpGet("[controller]/{id:guid}")]
         public ProductContract Get(Guid id)
         {
             return _productService.GetProductById(id);
         }
 
-        [HttpPost]
-        [Route("products")]
+        [HttpPost("[controller]")]
         public async Task<IActionResult> Post([FromBody] AddProductContract contract)
         {
             await _productService.AddProduct(contract);
-            return CustomResponse("/products");
+            return CustomResponse();
         }
 
-        [HttpPut]
-        [Route("products/{id:guid}")]
+        [HttpPut("[controller]/{id:guid}")]
         public async Task<IActionResult> Put(Guid id, [FromBody] UpdateProductContract contract)
         {
             await _productService.UpdateProduct(id, contract);
-            return CustomResponse("/products");
+            return CustomResponse();
         }
 
-        [HttpDelete]
-        [Route("products/{id:guid}")]
+        [HttpDelete("[controller]/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _productService.DeleteProduct(id);
-            return CustomResponse("/products");
+            return CustomResponse();
         }
     }
 }

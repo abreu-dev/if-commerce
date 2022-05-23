@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace IfCommerce.Catalog.Api.Responses
 {
@@ -9,10 +8,10 @@ namespace IfCommerce.Catalog.Api.Responses
         public string TraceId { get; set; }
         public List<ResponseError> Errors { get; set; }
 
-        public Response(string instance)
+        public Response(string instance, string traceId)
         {
             Instance = instance;
-            TraceId = Activity.Current.TraceId.ToString();
+            TraceId = traceId;
             Errors = new List<ResponseError>();
         }
 

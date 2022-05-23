@@ -12,8 +12,7 @@ namespace IfCommerce.Catalog.Api.Controllers
             _healthService = healthService;
         }
 
-        [HttpGet]
-        [Route("health")]
+        [HttpGet("[controller]")]
         public IActionResult Get()
         {
             if (_healthService.IsHealthy())
