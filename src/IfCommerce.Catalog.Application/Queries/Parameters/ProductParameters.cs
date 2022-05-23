@@ -1,7 +1,7 @@
 ﻿using IfCommerce.Core.Query;
 using System.Collections.Generic;
 
-namespace IfCommerce.Catalog.Application.Query.Parameters
+namespace IfCommerce.Catalog.Application.Queries.Parameters
 {
     public class ProductParameters : QueryParameters
     {

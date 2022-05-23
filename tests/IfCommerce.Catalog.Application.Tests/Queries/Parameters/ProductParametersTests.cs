@@ -4,7 +4,7 @@ using IfCommerce.Core.Query;
 using System.Collections.Generic;
 using Xunit;
 
-namespace IfCommerce.Catalog.Application.Tests.Query.Parameters
+namespace IfCommerce.Catalog.Application.Tests.Queries.Parameters
 {
     public class ProductParametersTests
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using IfCommerce.Catalog.Application.Contracts.ProductContracts;
 using IfCommerce.Catalog.Application.Interfaces;
-using IfCommerce.Catalog.Application.Query.Parameters;
+using IfCommerce.Catalog.Application.Queries.Parameters;
 using IfCommerce.Catalog.Domain.Commands.ProductCommands;
 using IfCommerce.Catalog.Domain.Entities;
 using IfCommerce.Catalog.Domain.Interfaces;
