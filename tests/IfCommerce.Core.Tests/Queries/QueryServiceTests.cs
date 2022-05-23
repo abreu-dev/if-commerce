@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace IfCommerce.Core.Tests.Query
+namespace IfCommerce.Core.Tests.Queries
 {
     public class QueryServiceTests
     {
-        public class ConcreteEntity : Entity 
+        public class ConcreteEntity : Entity
         {
             public int Value { get; set; }
             public string Name { get; set; }

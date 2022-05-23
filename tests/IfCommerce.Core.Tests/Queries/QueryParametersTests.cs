@@ -2,7 +2,7 @@
 using IfCommerce.Core.Queries;
 using Xunit;
 
-namespace IfCommerce.Core.Tests.Query
+namespace IfCommerce.Core.Tests.Queries
 {
     public class QueryParametersTests
     {

@@ -4,7 +4,7 @@ using IfCommerce.Core.Queries;
 using System.Collections.Generic;
 using Xunit;
 
-namespace IfCommerce.Core.Tests.Query
+namespace IfCommerce.Core.Tests.Queries
 {
     public class PagedListTests
     {
