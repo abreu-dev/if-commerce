@@ -7,6 +7,7 @@ using IfCommerce.Catalog.Infra.Data.Context;
 using IfCommerce.Catalog.Infra.Data.Repositories;
 using IfCommerce.Core.Mediator;
 using IfCommerce.Core.Messaging.Notifications;
+using IfCommerce.Core.Query;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,6 +23,9 @@ namespace IfCommerce.Catalog.Infra.CrossCutting.IoC
             // Application - Services
             services.AddScoped<IHealthService, HealthService>();
             services.AddScoped<IProductService, ProductService>();
+
+            // Application - Query
+            services.AddScoped<IQueryService, QueryService>();
 
             // Domain - Mediator
             services.AddScoped<IMediatorHandler, MediatorHandler>();

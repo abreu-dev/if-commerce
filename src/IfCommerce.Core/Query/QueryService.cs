@@ -3,13 +3,18 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Text;
 
-namespace IfCommerce.Core.Extensions
+namespace IfCommerce.Core.Query
 {
-    public static class QueryableExtensions
+    public class QueryService : IQueryService
     {
-        private static string CHARACTER_CONTAINS = "*";
+        private const string CHARACTER_CONTAINS = "*";
 
-        public static IQueryable<TEntity> ApplyFilter<TEntity>(this IQueryable<TEntity> source, string propertyName, IEnumerable<string> propertyValues)
+        public IQueryable<T> Ordering<T>(IQueryable<T> source, string order)
+        {
+            return source.OrderBy(order);
+        }
+
+        public IQueryable<T> Filtering<T>(IQueryable<T> source, string propertyName, IEnumerable<string> propertyValues)
         {
             var predicate = new StringBuilder();
             var parameters = new List<string>();
@@ -51,6 +56,13 @@ namespace IfCommerce.Core.Extensions
             }
 
             return source.Where(predicate.ToString(), parameters.ToArray());
+        }
+
+        public PagedList<T> Pagination<T>(IQueryable<T> source, int page, int size)
+        {
+            var count = source.Count();
+            var items = source.Skip((page - 1) * size).Take(size).ToList();
+            return new PagedList<T>(items, count, page, size);
         }
     }
 }

@@ -5,7 +5,6 @@ using IfCommerce.Catalog.Application.Query.Parameters;
 using IfCommerce.Catalog.Domain.Commands.ProductCommands;
 using IfCommerce.Catalog.Domain.Entities;
 using IfCommerce.Catalog.Domain.Interfaces;
-using IfCommerce.Core.Extensions;
 using IfCommerce.Core.Mediator;
 using IfCommerce.Core.Query;
 using System;
@@ -20,26 +19,31 @@ namespace IfCommerce.Catalog.Application.Services
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
         private readonly IMediatorHandler _mediatorHandler;
+        private readonly IQueryService _queryService;
 
-        public ProductService(IMapper mapper, IProductRepository productRepository, IMediatorHandler mediatorHandler)
+        public ProductService(IMapper mapper,
+                              IProductRepository productRepository,
+                              IMediatorHandler mediatorHandler, 
+                              IQueryService queryService)
         {
             _mapper = mapper;
             _productRepository = productRepository;
             _mediatorHandler = mediatorHandler;
+            _queryService = queryService;
         }
 
         public PagedList<ProductContract> GetPagedProducts(ProductParameters parameters)
         {
             var source = _productRepository.Products();
 
-            source = string.IsNullOrEmpty(parameters.Order) ? source.OrderBy(p => p.Name) : source.OrderBy(parameters.Order);
+            source = _queryService.Ordering(source, parameters.Order);
 
             if (parameters.Name.Any())
             {
-                source = source.ApplyFilter("Name", parameters.Name);
+                source = _queryService.Filtering(source, "Name", parameters.Name);
             }
 
-            var pagedList = PagedList<Product>.ToPagedList(source, parameters.Page, parameters.Size);
+            var pagedList = _queryService.Pagination(source, parameters.Page, parameters.Size);
             return _mapper.Map<PagedList<ProductContract>>(pagedList);
         }
 

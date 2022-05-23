@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace IfCommerce.Core.Query
 {
@@ -25,13 +24,6 @@ namespace IfCommerce.Core.Query
             TotalPages = (int)Math.Ceiling(count / (double)size);
             TotalCount = count;
             PageSize = size;
-        }
-
-        public static PagedList<T> ToPagedList(IQueryable<T> source, int page, int size)
-        {
-            var count = source.Count();
-            var items = source.Skip((page - 1) * size).Take(size).ToList();
-            return new PagedList<T>(items, count, page, size);
         }
     }
 }
