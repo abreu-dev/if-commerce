@@ -1,6 +1,7 @@
 ﻿using IfCommerce.Catalog.Application.Interfaces;
 using IfCommerce.Catalog.Application.Services;
 using IfCommerce.Catalog.Domain.CommandHandlers;
+using IfCommerce.Catalog.Domain.Commands.CategoryCommands;
 using IfCommerce.Catalog.Domain.Commands.ProductCommands;
 using IfCommerce.Catalog.Domain.Interfaces;
 using IfCommerce.Catalog.Infra.Data.Context;
@@ -23,6 +24,7 @@ namespace IfCommerce.Catalog.Infra.CrossCutting.IoC
             // Application - Services
             services.AddScoped<IHealthService, HealthService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             // Application - Query
             services.AddScoped<IQueryService, QueryService>();
@@ -38,11 +40,16 @@ namespace IfCommerce.Catalog.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateProductCommand, Unit>, ProductCommandHandler>();
             services.AddScoped<IRequestHandler<DeleteProductCommand, Unit>, ProductCommandHandler>();
 
+            services.AddScoped<IRequestHandler<AddCategoryCommand, Unit>, CategoryCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateCategoryCommand, Unit>, CategoryCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteCategoryCommand, Unit>, CategoryCommandHandler>();
+
             // Infra Data - Contexts
             services.AddScoped<ICatalogContext, CatalogContext>();
 
             // Infra Data - Repositories
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
     }
 }

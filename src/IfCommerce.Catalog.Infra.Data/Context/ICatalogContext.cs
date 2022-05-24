@@ -7,5 +7,6 @@ namespace IfCommerce.Catalog.Infra.Data.Context
     public interface ICatalogContext : IContext
     {
         DbSet<Product> Products { get; set; }
+        DbSet<Category> Categories { get; set; }
     }
 }
